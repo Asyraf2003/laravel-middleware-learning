@@ -35,8 +35,9 @@ public function handle($request, Closure $next, ...$roles)
     }
     return $next($request);
 }
+```
 🛠️ Contoh di Route
-php
+```php
 Copy code
 // routes/web.php
 Route::middleware(['auth', 'role:admin'])->group(function () {
@@ -46,6 +47,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard', fn() => 'User Dashboard');
 });
+```
 🎯 Tujuan
 Memahami alur autentikasi dan role checking di Laravel.
 
@@ -56,9 +58,9 @@ Menjadi dasar belajar sebelum implementasi multi-guard, policy, atau permission 
 ⚠️ Catatan
 Ini bukan template siap pakai — hanya core code yang bisa kamu pelajari, ubah, dan kembangkan sendiri.
 
-yaml
+```yaml
 Copy code
-
+```
 ---
 
 # 💾 3️⃣ Inisialisasi Git dan push ke GitHub
