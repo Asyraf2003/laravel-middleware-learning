@@ -1,31 +1,34 @@
+```
 # 🎓 Laravel Multi-Role Middleware (Code-Learning Version)
 
-Repo ini berisi **kode mentah dan disederhanakan** untuk memahami konsep *multi-role system* di Laravel.  
-Tujuannya bukan untuk langsung dipakai di production, tapi untuk membantu pemula **belajar alur logika role-based access** secara bersih dan mudah dipahami.
-
----
-## 📘 Konsep Utama
-
-- Middleware `RoleMiddleware` untuk memeriksa peran user (`admin`, `user`, dll).
-- Model `User` punya field `role`.
-- Route di `web.php` dibatasi berdasarkan role.
+This repository contains **simplified and raw code** to help you understand how a *multi-role system* works in Laravel.  
+The purpose is not for production use, but to help beginners **learn the logic flow of role-based access** in a clean and minimal way.
 
 ---
 
-# 📂 Struktur Folder
+## 📘 Core Concept
+
+- A custom middleware `RoleMiddleware` checks a user’s role (`admin`, `user`, etc.).
+- The `User` model contains a `role` field.
+- Routes in `web.php` are restricted based on role.
+
+---
+
+## 📂 Folder Structure
+
+```
 app/
 └── Http/
-└── Middleware/
-└── RoleMiddleware.php
+    └── Middleware/
+        └── RoleMiddleware.php
 routes/
 └── web.php
-
-php
-Copy code
+```
 
 ---
 
-# ⚙️ Contoh Inti Middleware
+## ⚙️ Core Middleware Example
+
 ```php
 // app/Http/Middleware/RoleMiddleware.php
 public function handle($request, Closure $next, ...$roles)
@@ -36,9 +39,12 @@ public function handle($request, Closure $next, ...$roles)
     return $next($request);
 }
 ```
-🛠️ Contoh di Route
+
+---
+
+## 🛠️ Example Routes
+
 ```php
-Copy code
 // routes/web.php
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin', fn() => 'Admin Panel');
@@ -48,22 +54,25 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/dashboard', fn() => 'User Dashboard');
 });
 ```
-🎯 Tujuan
-Memahami alur autentikasi dan role checking di Laravel.
 
-Melihat struktur middleware & route yang jelas.
-
-Menjadi dasar belajar sebelum implementasi multi-guard, policy, atau permission package (seperti Spatie).
-
-⚠️ Catatan
-Ini bukan template siap pakai — hanya core code yang bisa kamu pelajari, ubah, dan kembangkan sendiri.
-
-```yaml
-Copy code
-```
 ---
 
-# 💾 3️⃣ Inisialisasi Git dan push ke GitHub
+## 🎯 Goal
+
+- Understand the authentication and role-checking flow in Laravel.  
+- See a clear structure of middleware and routes.  
+- Build a foundation before moving to more advanced role systems like **multi-guard**, **policy**, or **permission packages** (e.g., Spatie Laravel Permission).
+
+---
+
+## ⚠️ Note
+
+This is **not** a ready-to-use template.  
+It’s a simple code base intended for learning, experimentation, and further modification.
+
+---
+
+## 💾 Initialize Git and Push to GitHub
 
 ```bash
 cd ~/Projects/Laravel/middlewareAllRole
@@ -73,3 +82,5 @@ git commit -m "init: add simplified multi-role middleware example for learning"
 git branch -M main
 git remote add origin https://github.com/Asyraf2003/middlewareAllRole.git
 git push -u origin main
+```
+```
