@@ -1,4 +1,3 @@
-```
 # 🎓 Laravel Multi-Role Middleware (Code-Learning Version)
 
 This repository contains **simplified and raw code** to help you understand how a *multi-role system* works in Laravel.  
@@ -82,5 +81,4 @@ git commit -m "init: add simplified multi-role middleware example for learning"
 git branch -M main
 git remote add origin https://github.com/Asyraf2003/middlewareAllRole.git
 git push -u origin main
-```
 ```
